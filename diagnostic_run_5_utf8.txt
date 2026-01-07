@@ -1,0 +1,47 @@
+﻿
+Running 1 test using 1 worker
+
+Connecting to ZenRows CDP: wss://browser.zenrows.com...
+Γ£à Connection health check passed (browser is responsive)
+≡ƒÜÇ Navigation attempt 1 to Login...
+ΓÅ│ Waiting for DOM to stabilize (5s)...
+Γî¢ Checking for loading overlays...
+Γ£à No visible loaders found.
+≡ƒöì Total frames detected: 1
+   Frame 0: https://www.mca.gov.in/content/mca/global/en/foportal/fologin.html (inputs: 10)
+Γ£à Functional login fields detected.
+≡ƒô╕ Screenshot: step_login_page.png
+Γ£à Login frame identified: https://www.mca.gov.in/content/mca/global/en/foportal/fologin.html
+ΓÅ│ Waiting for User ID field visibility...
+Γî¿∩╕Å Typing User ID...
+  Γ£ÿ  1 [chromium] ΓÇ║ tests\mca_proxy_login.spec.ts:248:5 ΓÇ║ MCA Login via ZenRows Cloud ΓÇô autoΓÇæsolve CAPTCHA (1.5m)
+
+
+  1) [chromium] ΓÇ║ tests\mca_proxy_login.spec.ts:248:5 ΓÇ║ MCA Login via ZenRows Cloud ΓÇô autoΓÇæsolve CAPTCHA 
+
+    TimeoutError: locator.type: Timeout 20000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('input[id*="user" i], input[name*="user" i], input[type="text"]').first()[22m
+    [2m    - locator resolved to <input type="text" tabindex="0" maxlength="50" placeholder="" autocomplete="off" required="required" aria-required="true" aria-label="Text Box" id="guideContainer-rootPanel-panel_1846244155-guidetextbox___widget" name="guideContainer-rootPanel-panel_1846244155-guidetextbox___jqName" aria-describedby="guideContainer-rootPanel-panel_1846244155-guidetextbox___widget_desc"/>[22m
+    [2m  - elementHandle.type("kevinraj20@gmail.com")[22m
+
+
+      387 |     await userField.press('Control+A');
+      388 |     await userField.press('Backspace');
+    > 389 |     await userField.type('kevinraj20@gmail.com', { delay: 100 });
+          |                     ^
+      390 |
+      391 |     traceLog('Γî¿∩╕Å Typing Password...');
+      392 |     await passField.click();
+        at C:\Users\pro\PlayWright\tests\mca_proxy_login.spec.ts:389:21
+
+    attachment #1: trace (application/zip) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    test-results\mca_proxy_login-MCA-Login--6002c--Cloud-ΓÇô-autoΓÇæsolve-CAPTCHA-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\mca_proxy_login-MCA-Login--6002c--Cloud-ΓÇô-autoΓÇæsolve-CAPTCHA-chromium\trace.zip
+
+    ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+  1 failed
+    [chromium] ΓÇ║ tests\mca_proxy_login.spec.ts:248:5 ΓÇ║ MCA Login via ZenRows Cloud ΓÇô autoΓÇæsolve CAPTCHA 

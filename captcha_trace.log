@@ -1,0 +1,55 @@
+=== TEST START ===
+[2026-01-07T16:43:50.581Z] 🚀 Navigation attempt 1 to Login...
+[2026-01-07T16:43:53.243Z] 📸 Screenshot: step_final_state.png
+[2026-01-07T16:43:53.553Z] ❌ BROWSER DISCONNECTED unexpectedly
+[2026-01-07T16:44:08.273Z] ⏳ Waiting for DOM to stabilize (10s)...
+[2026-01-07T16:44:19.452Z] ⌛ Waiting for any input field to appear in any frame...
+[2026-01-07T16:44:22.118Z] ⌛ Checking for loading overlays...
+[2026-01-07T16:44:23.754Z] ✅ No visible loaders found.
+[2026-01-07T16:44:23.755Z] 🔍 Total frames detected: 1
+[2026-01-07T16:44:25.392Z]    Frame 0: https://www.mca.gov.in/content/mca/global/en/foportal/fologin.html (inputs: 10)
+[2026-01-07T16:44:25.393Z] ✅ Functional login fields detected.
+[2026-01-07T16:44:29.823Z] 📸 Screenshot: step_login_page.png
+[2026-01-07T16:44:30.850Z] ✅ Login frame identified: https://www.mca.gov.in/content/mca/global/en/foportal/fologin.html
+[2026-01-07T16:44:30.851Z] ⏳ Waiting for User ID field visibility...
+[2026-01-07T16:44:32.457Z] ⌨️ Filling credentials...
+[2026-01-07T16:44:47.723Z] 📸 Taking credentials_filled screenshot...
+[2026-01-07T16:44:51.037Z] 📸 Screenshot: step_credentials_filled.png
+[2026-01-07T16:44:51.038Z] ⌛ Waiting for CAPTCHA image to load...
+[2026-01-07T16:44:52.361Z] ✅ CAPTCHA image is visible.
+[2026-01-07T16:44:53.961Z] 📝 Frame source saved
+[2026-01-07T16:44:53.962Z] --- CAPTCHA ATTEMPT 1 ---
+[2026-01-07T16:45:03.422Z]   [Thresh 110] PSM SINGLE_LINE: "iLwigsP" (conf: 32.0%)
+[2026-01-07T16:45:03.839Z]   [Thresh 110] PSM SINGLE_WORD: "pe" (conf: 25.0%)
+[2026-01-07T16:45:04.327Z]   [Thresh 128] PSM SINGLE_LINE: "iLwigsP" (conf: 31.0%)
+[2026-01-07T16:45:04.708Z]   [Thresh 128] PSM SINGLE_WORD: "pe" (conf: 22.0%)
+[2026-01-07T16:45:05.158Z]   [Thresh 150] PSM SINGLE_LINE: "iLwigsP" (conf: 27.0%)
+[2026-01-07T16:45:05.544Z]   [Thresh 150] PSM SINGLE_WORD: "ewe" (conf: 29.0%)
+[2026-01-07T16:45:05.545Z] 🧩 Best result for attempt 1: "iLwigsP" (conf: 32.0%)
+[2026-01-07T16:45:05.547Z] OCR result: "iLwigsP" (conf: 32.0%)
+[2026-01-07T16:45:05.548Z] OCR confidence too low or empty text
+[2026-01-07T16:45:10.805Z] Clicked Refresh Captcha
+[2026-01-07T16:45:13.035Z] --- CAPTCHA ATTEMPT 2 ---
+[2026-01-07T16:45:22.464Z]   [Thresh 110] PSM SINGLE_LINE: "iLwigsP" (conf: 32.0%)
+[2026-01-07T16:45:22.841Z]   [Thresh 110] PSM SINGLE_WORD: "pe" (conf: 25.0%)
+[2026-01-07T16:45:23.327Z]   [Thresh 128] PSM SINGLE_LINE: "iLwigsP" (conf: 31.0%)
+[2026-01-07T16:45:23.692Z]   [Thresh 128] PSM SINGLE_WORD: "pe" (conf: 22.0%)
+[2026-01-07T16:45:24.224Z]   [Thresh 150] PSM SINGLE_LINE: "iLwigsP" (conf: 27.0%)
+[2026-01-07T16:45:24.580Z]   [Thresh 150] PSM SINGLE_WORD: "ewe" (conf: 29.0%)
+[2026-01-07T16:45:24.581Z] 🧩 Best result for attempt 2: "iLwigsP" (conf: 32.0%)
+[2026-01-07T16:45:24.582Z] OCR result: "iLwigsP" (conf: 32.0%)
+[2026-01-07T16:45:24.583Z] OCR confidence too low or empty text
+[2026-01-07T16:45:30.507Z] Clicked Refresh Captcha
+[2026-01-07T16:45:32.781Z] --- CAPTCHA ATTEMPT 3 ---
+[2026-01-07T16:45:42.079Z]   [Thresh 110] PSM SINGLE_LINE: "iLwigsP" (conf: 32.0%)
+[2026-01-07T16:45:42.461Z]   [Thresh 110] PSM SINGLE_WORD: "pe" (conf: 25.0%)
+[2026-01-07T16:45:42.994Z]   [Thresh 128] PSM SINGLE_LINE: "iLwigsP" (conf: 31.0%)
+[2026-01-07T16:45:43.365Z]   [Thresh 128] PSM SINGLE_WORD: "pe" (conf: 22.0%)
+[2026-01-07T16:45:43.868Z]   [Thresh 150] PSM SINGLE_LINE: "iLwigsP" (conf: 27.0%)
+[2026-01-07T16:45:44.240Z]   [Thresh 150] PSM SINGLE_WORD: "ewe" (conf: 29.0%)
+[2026-01-07T16:45:44.241Z] 🧩 Best result for attempt 3: "iLwigsP" (conf: 32.0%)
+[2026-01-07T16:45:44.241Z] OCR result: "iLwigsP" (conf: 32.0%)
+[2026-01-07T16:45:44.242Z] OCR confidence too low or empty text
+[2026-01-07T16:45:44.243Z] ❌ All attempts failed – manual intervention required
+[2026-01-07T16:45:48.786Z] 📸 Screenshot: step_final_state.png
+[2026-01-07T16:45:49.123Z] ❌ BROWSER DISCONNECTED unexpectedly

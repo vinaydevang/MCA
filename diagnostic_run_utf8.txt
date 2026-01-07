@@ -1,0 +1,38 @@
+﻿
+Running 1 test using 1 worker
+
+  Γ£ÿ  1 [chromium] ΓÇ║ tests\mca_proxy_login.spec.ts:226:5 ΓÇ║ MCA Login via ZenRows Cloud ΓÇô autoΓÇæsolve CAPTCHA (5.2s)
+
+
+  1) [chromium] ΓÇ║ tests\mca_proxy_login.spec.ts:226:5 ΓÇ║ MCA Login via ZenRows Cloud ΓÇô autoΓÇæsolve CAPTCHA 
+
+    Error: browserType.connectOverCDP: WebSocket error: wss://browser.zenrows.com/ 401 Unauthorized
+    {"code":"AUTH003","detail":"The apikey sent in your request is not valid. Please retry by adding a valid apikey along with your request.","instance":"/v1","status":401,"title":"Invalid apikey provided (AUTH003)","type":"https://docs.zenrows.com/api-error-codes#AUTH003"}
+    Call log:
+    [2m  - <ws connecting> wss://browser.zenrows.com/[22m
+    [2m  - <ws unexpected response> wss://browser.zenrows.com/ 401 Unauthorized[22m
+    [2m{"code":"AUTH003","detail":"The apikey sent in your request is not valid. Please retry by adding a valid apikey along with your request.","instance":"/v1","status":401,"title":"Invalid apikey provided (AUTH003)","type":"https://docs.zenrows.com/api-error-codes#AUTH003"}[22m
+    [2m  - <ws error> wss://browser.zenrows.com/ error WebSocket was closed before the connection was established[22m
+    [2m  - <ws connect error> wss://browser.zenrows.com/ WebSocket was closed before the connection was established[22m
+    [2m  - <ws disconnected> wss://browser.zenrows.com/ code=1006 reason=[22m
+
+
+      252 |
+      253 |     // ---------- launch ----------
+    > 254 |     const browser: Browser = await chromium.connectOverCDP(connectionURL);
+          |                                             ^
+      255 |     const context = (await browser.contexts())[0] || await browser.newContext();
+      256 |     const page: Page = await context.newPage();
+      257 |
+        at C:\Users\pro\PlayWright\tests\mca_proxy_login.spec.ts:254:45
+
+    attachment #1: trace (application/zip) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    test-results\mca_proxy_login-MCA-Login--6002c--Cloud-ΓÇô-autoΓÇæsolve-CAPTCHA-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\mca_proxy_login-MCA-Login--6002c--Cloud-ΓÇô-autoΓÇæsolve-CAPTCHA-chromium\trace.zip
+
+    ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+  1 failed
+    [chromium] ΓÇ║ tests\mca_proxy_login.spec.ts:226:5 ΓÇ║ MCA Login via ZenRows Cloud ΓÇô autoΓÇæsolve CAPTCHA 

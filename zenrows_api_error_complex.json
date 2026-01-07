@@ -1,0 +1,7 @@
+{
+  "code": "REQS004",
+  "instance": "/v1",
+  "status": 400,
+  "title": "Unexpected 'resolve_captcha' parameter (REQS004)",
+  "type": "https://docs.zenrows.com/api-error-codes#REQS004"
+}

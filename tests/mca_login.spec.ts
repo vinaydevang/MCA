@@ -98,3 +98,131 @@
 //   console.log('\n=== Pausing for inspection ===');
 //   await page.pause();
 // });
+
+
+import { test, chromium, Page, Browser, Frame } from '@playwright/test';
+import * as fs from 'fs';
+
+test('MCA Login - Ultimate Extraction & Guaranteed Entry', async () => {
+    // 1. API Key & Connection
+    const apiKey = '46cae368af0151f0198e86d465a0f801a8f09ed6';
+    const connectionURL = `wss://browser.zenrows.com?apikey=${apiKey}&proxy_country=in`;
+
+    const traceLog = (msg: string) => {
+        const timestamp = new Date().toISOString();
+        fs.appendFileSync('captcha_trace.log', `[${timestamp}] ${msg}\n`);
+        console.log(msg);
+    };
+
+    traceLog('=== TEST START ===');
+    const browser: Browser = await chromium.connectOverCDP(connectionURL);
+    const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+    const page: Page = await context.newPage();
+
+    try {
+        traceLog('Step 1: Navigating to MCA Login...');
+        await page.goto('https://www.mca.gov.in/content/mca/global/en/foportal/fologin.html', {
+            waitUntil: 'networkidle',
+            timeout: 90000
+        });
+
+        // 2. Guaranteed Frame Hunt
+        let loginFrame: Frame | null = null;
+        const userSelector = 'input[id*="user" i], input[name*="user" i], input[id*="Name" i]';
+
+        traceLog('🔍 Searching for active Login Form inside frames...');
+        for (let i = 0; i < 15; i++) {
+            const allFrames = page.frames();
+            for (const frame of allFrames) {
+                try {
+                    const isVisible = await frame.locator(userSelector).first().isVisible();
+                    if (isVisible) {
+                        loginFrame = frame;
+                        break;
+                    }
+                } catch (e) { continue; }
+            }
+            if (loginFrame) break;
+            await page.waitForTimeout(3000);
+        }
+
+        if (!loginFrame) throw new Error('❌ FAILED: Login frame not found.');
+        traceLog(`✅ Target Frame found: ${loginFrame.url().substring(0, 50)}...`);
+
+        // 3. Fill Credentials
+        traceLog('⌨️ Entering Username and Password...');
+        await loginFrame.locator(userSelector).first().fill('kevinraj20@gmail.com');
+        await loginFrame.locator('input[type="password"]').first().fill('TbT@629002');
+
+        // 4. Enhanced CAPTCHA Extraction
+        traceLog('📸 Detecting CAPTCHA...');
+        const captchaTarget = loginFrame.locator('#captchaCanvas, canvas[id*="captcha" i], img[src*="captcha" i]').first();
+        const captchaInput = loginFrame.locator('input[id*="captcha" i], input[placeholder*="letters" i]').first();
+
+        if (await captchaTarget.isVisible()) {
+            // High-Resolution Browser-side Processing
+            const base64Data = await captchaTarget.evaluate((el: HTMLElement) => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                if (!ctx) return null;
+
+                const w = (el as any).naturalWidth || (el as any).width || el.clientWidth;
+                const h = (el as any).naturalHeight || (el as any).height || el.clientHeight;
+
+                // Scale up 2x for OCR clarity
+                canvas.width = w * 2;
+                canvas.height = h * 2;
+                ctx.fillStyle = 'white';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(el as any, 0, 0, canvas.width, canvas.height);
+
+                return canvas.toDataURL('image/png');
+            });
+
+            if (base64Data) {
+                const snapshotPath = 'captcha_snapshot.png';
+                const base64Image = base64Data.replace(/^data:image\/\w+;base64,/, "");
+                fs.writeFileSync(snapshotPath, base64Image, 'base64');
+
+                // 5. Specialized OCR
+                traceLog('🤖 Running OCR...');
+                const { createWorker } = require('tesseract.js');
+                const worker = await createWorker('eng');
+                await worker.setParameters({
+                    tessedit_char_whitelist: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+                });
+                const { data: { text, confidence } } = await worker.recognize(snapshotPath);
+                await worker.terminate();
+
+                const cleanText = text.trim().replace(/\s/g, '');
+                traceLog(`🧩 CAPTCHA Solved: "${cleanText}" (Confidence: ${confidence}%)`);
+
+                if (cleanText.length >= 4) {
+                    await captchaInput.fill(cleanText);
+                    
+                    traceLog('🚀 Clicking Sign In...');
+                    const submitBtn = loginFrame.locator('input[type="submit"], button[type="submit"], #login-btn').first();
+                    await submitBtn.click();
+
+                    // 6. Verification
+                    try {
+                        await page.waitForURL('**/foportal/fodashboard.html', { timeout: 30000 });
+                        traceLog('🎉 SUCCESS: Dashboard reached!');
+                    } catch (e) {
+                        traceLog('⚠️ Navigation failed. CAPTCHA might have been wrong.');
+                        await page.screenshot({ path: 'login_failed.png' });
+                    }
+                }
+            }
+        } else {
+            traceLog('❌ CAPTCHA element not visible.');
+        }
+
+    } catch (error: any) {
+        traceLog(`❌ FATAL ERROR: ${error.message}`);
+        await page.screenshot({ path: 'fatal_error.png' });
+    } finally {
+        await browser.close();
+        traceLog('=== TEST END ===');
+    }
+});

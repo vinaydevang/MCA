@@ -1,0 +1,62 @@
+﻿
+Running 1 test using 1 worker
+
+Connecting to ZenRows CDP: wss://browser.zenrows.com...
+Γ£à Connection health check passed (browser is responsive)
+≡ƒÜÇ Navigation attempt 1 to Login...
+ΓÅ│ Waiting for DOM to stabilize (5s)...
+Γî¢ Checking for loading overlays...
+Γ£à No visible loaders found.
+≡ƒöì Total frames detected: 1
+   Frame 0: https://www.mca.gov.in/content/mca/global/en/foportal/fologin.html (inputs: 10)
+Γ£à Functional login fields detected.
+≡ƒô╕ Screenshot: step_login_page.png
+Γ£à Login frame identified: https://www.mca.gov.in/content/mca/global/en/foportal/fologin.html
+ΓÅ│ Waiting for User ID field visibility...
+Γî¿∩╕Å Filling credentials...
+≡ƒô╕ Taking credentials_filled screenshot...
+≡ƒô╕ Screenshot: step_credentials_filled.png
+Γî¢ Waiting for CAPTCHA image to load...
+Γ£à CAPTCHA image is visible.
+≡ƒô¥ Frame source saved
+--- CAPTCHA ATTEMPT 1 ---
+  ≡ƒô╕ CAPTCHA processed and saved to debug_captcha_1_processed.png
+Attempted to set parameters that can only be set during initialization: tessedit_ocr_engine_mode
+  ≡ƒôè PSM SINGLE_LINE: "Qa" (conf: 22.0%)
+Attempted to set parameters that can only be set during initialization: tessedit_ocr_engine_mode
+  ≡ƒôè PSM SINGLE_WORD: "EE" (conf: 9.0%)
+Attempted to set parameters that can only be set during initialization: tessedit_ocr_engine_mode
+  ≡ƒôè PSM RAW_LINE: "EE" (conf: 9.0%)
+≡ƒº⌐ OCR attempt 1: "Qa" (conf: 22.0%, mode: SINGLE_LINE)
+OCR result: "Qa" (conf: 22.0%)
+OCR confidence too low or empty text
+Clicked Refresh Captcha
+--- CAPTCHA ATTEMPT 2 ---
+  ≡ƒô╕ CAPTCHA processed and saved to debug_captcha_2_processed.png
+Attempted to set parameters that can only be set during initialization: tessedit_ocr_engine_mode
+  ≡ƒôè PSM SINGLE_LINE: "Qa" (conf: 22.0%)
+Attempted to set parameters that can only be set during initialization: tessedit_ocr_engine_mode
+  ≡ƒôè PSM SINGLE_WORD: "EE" (conf: 9.0%)
+Attempted to set parameters that can only be set during initialization: tessedit_ocr_engine_mode
+  ≡ƒôè PSM RAW_LINE: "EE" (conf: 9.0%)
+≡ƒº⌐ OCR attempt 2: "Qa" (conf: 22.0%, mode: SINGLE_LINE)
+OCR result: "Qa" (conf: 22.0%)
+OCR confidence too low or empty text
+Clicked Refresh Captcha
+--- CAPTCHA ATTEMPT 3 ---
+  ≡ƒô╕ CAPTCHA processed and saved to debug_captcha_3_processed.png
+Attempted to set parameters that can only be set during initialization: tessedit_ocr_engine_mode
+  ≡ƒôè PSM SINGLE_LINE: "Qa" (conf: 22.0%)
+Attempted to set parameters that can only be set during initialization: tessedit_ocr_engine_mode
+  ≡ƒôè PSM SINGLE_WORD: "EE" (conf: 9.0%)
+Attempted to set parameters that can only be set during initialization: tessedit_ocr_engine_mode
+  ≡ƒôè PSM RAW_LINE: "EE" (conf: 9.0%)
+≡ƒº⌐ OCR attempt 3: "Qa" (conf: 22.0%, mode: SINGLE_LINE)
+OCR result: "Qa" (conf: 22.0%)
+OCR confidence too low or empty text
+Γ¥î All attempts failed ΓÇô manual intervention required
+≡ƒô╕ Screenshot: step_final_state.png
+Γ¥î BROWSER DISCONNECTED unexpectedly
+  Γ£ô  1 [chromium] ΓÇ║ tests\mca_proxy_login.spec.ts:244:5 ΓÇ║ MCA Login via ZenRows Cloud ΓÇô autoΓÇæsolve CAPTCHA (2.8m)
+
+  1 passed (2.9m)

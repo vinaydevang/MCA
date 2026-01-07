@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "ghost-cursor": "^1.4.1",
+    "jimp": "^1.6.0",
     "playwright-extra": "^4.3.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2",
     "tesseract.js": "^7.0.0"
